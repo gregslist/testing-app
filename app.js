@@ -1,6 +1,11 @@
-const express = require('express')
-const app = express()
+var express = require('express');
+var http = require('http');
+var https = require('https');
+var fs = require('fs');
 
-app.get('/', (req, res) => res.send('Hello World!'))
+var server = express();
+http.createServer(server).listen(8000);
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+server.get('/', function (req, res) {
+    res.send("Hello World!");
+});
